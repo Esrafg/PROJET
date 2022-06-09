@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PROJET.Models.Fournisseur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br/><br/>
+<h1>Notre liste de Fournisseurs </h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FournisseurName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FournisseurName)
+            </td>
+            <td>
+                   <button class="btn btn-secondary   btn-lg"> <a class="text-white"  asp-action="Edit" asp-route-id="@item.FournisseurID">Edit</a></button>
+                   <button class="btn btn-secondary   btn-lg"> <a class="text-white" asp-action="Details" asp-route-id="@item.FournisseurID">Details</a> </button>
+                    <button class="btn btn-secondary   btn-lg"> <a class="text-white"  asp-action="Delete" asp-route-id="@item.FournisseurID">Delete</a></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
